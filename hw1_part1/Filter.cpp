@@ -24,6 +24,7 @@ void Filter::do_filter() {
           val_r[v] = i_r.read();
           val_g[v] = i_g.read();
           val_b[v] = i_b.read();
+          mem_access_cnt++;
       }
       std::sort(val_r, val_r + 9);
       std::sort(val_g, val_g + 9);

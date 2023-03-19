@@ -30,6 +30,7 @@ void Filter::do_filter() {
           val_r[3 * w + v] = in_buf_r[v][w];
           val_g[3 * w + v] = in_buf_g[v][w];
           val_b[3 * w + v] = in_buf_b[v][w];
+          mem_access_cnt++;
         }
       }
       std::sort(val_r, val_r + 9);
@@ -50,6 +51,7 @@ void Filter::do_filter() {
               in_buf_r[v][w] = i_r.read();
               in_buf_g[v][w] = i_g.read();
               in_buf_b[v][w] = i_b.read();
+              mem_access_cnt++;
             } else {
               in_buf_r[v][w] = in_buf_r[v + 1][w];
               in_buf_g[v][w] = in_buf_g[v + 1][w];
@@ -81,6 +83,7 @@ void Filter::do_filter() {
               in_buf_r[v][w] = i_r.read();
               in_buf_g[v][w] = i_g.read();
               in_buf_b[v][w] = i_b.read();
+              mem_access_cnt++;
             } else {
               in_buf_r[v][w] = in_buf_r[v][w + 1];
               in_buf_g[v][w] = in_buf_g[v][w + 1];
@@ -109,6 +112,7 @@ void Filter::do_filter() {
               in_buf_r[v][w] = i_r.read();
               in_buf_g[v][w] = i_g.read();
               in_buf_b[v][w] = i_b.read();
+              mem_access_cnt++;
             } else {
               in_buf_r[v][w] = in_buf_r[v - 1][w];
               in_buf_g[v][w] = in_buf_g[v - 1][w];
@@ -143,6 +147,7 @@ void Filter::do_filter() {
               in_buf_r[v][w] = i_r.read();
               in_buf_g[v][w] = i_g.read();
               in_buf_b[v][w] = i_b.read();
+              mem_access_cnt++;
             } else {
               in_buf_r[v][w] = in_buf_r[v][w + 1];
               in_buf_g[v][w] = in_buf_g[v][w + 1];
@@ -171,6 +176,7 @@ void Filter::do_filter() {
               in_buf_r[v][w] = i_r.read();
               in_buf_g[v][w] = i_g.read();
               in_buf_b[v][w] = i_b.read();
+              mem_access_cnt++;
             } else {
               in_buf_r[v][w] = in_buf_r[v + 1][w];
               in_buf_g[v][w] = in_buf_g[v + 1][w];
@@ -209,6 +215,7 @@ void Filter::do_filter() {
               in_buf_r[v][w] = i_r.read();
               in_buf_g[v][w] = i_g.read();
               in_buf_b[v][w] = i_b.read();
+              mem_access_cnt++;
               val_r[3 * w + v] = in_buf_r[v][w];
               val_g[3 * w + v] = in_buf_g[v][w];
               val_b[3 * w + v] = in_buf_b[v][w];
@@ -221,6 +228,7 @@ void Filter::do_filter() {
                   in_buf_r[v][w] = i_r.read();
                   in_buf_g[v][w] = i_g.read();
                   in_buf_b[v][w] = i_b.read();
+                  mem_access_cnt++;
                 } else {
                   in_buf_r[v][w] = in_buf_r[v][w + 1];
                   in_buf_g[v][w] = in_buf_g[v][w + 1];

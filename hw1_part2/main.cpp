@@ -58,8 +58,9 @@ int sc_main(int argc, char **argv) {
   filter.o_b(result_b);
 
   tb.read_bmp(argv[1]);
+  filter.mem_access_cnt = 0;
   sc_start();
-  std::cout << "Simulated time == " << sc_core::sc_time_stamp() << std::endl;
+  std::cout << "# of pixel transfer == " << filter.mem_access_cnt << std::endl;
   tb.write_bmp(argv[2]);
   return 0;
 }

@@ -15,6 +15,7 @@ public:
   sc_fifo_out<int> o_r;
   sc_fifo_out<int> o_g;
   sc_fifo_out<int> o_b;
+  int mem_access_cnt;
 
   SC_HAS_PROCESS(Filter);
   Filter(sc_module_name n);
